@@ -11,7 +11,12 @@ class Funcoes
 	Ano 1700 = século 17
      * */
     public function SeculoAno(int $ano): int {
-        
+        $resto = $ano % 100;
+        if ($resto <> 0){
+            return ($ano/100) + 1;
+        }else{
+            return ($ano/100);
+        }
     }
 
 
