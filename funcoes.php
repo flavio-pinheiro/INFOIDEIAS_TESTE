@@ -34,7 +34,33 @@ class Funcoes
     Número = 29 resposta = 23
      * */
     public function PrimoAnterior(int $numero): int {
+        if($numero <= 2){
+            return 0;
+        }
 
+        $achou = false;
+
+        while($achou == false){ 
+            $i = 1;
+            $sair = false;
+            $numero = $numero - 1;
+
+            while ($sair == false) {
+                
+                if($numero - $i == 1){
+                    $sair = true;
+                    $achou = true;
+                }
+                
+                if ($numero % ($numero -$i) == 0) {
+                    $sair = true;
+                }else{
+                    $i++;
+                }
+            }
+        }
+
+        return $numero;
     }
 
 
