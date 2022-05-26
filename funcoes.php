@@ -152,6 +152,37 @@ class Funcoes
      * */
 
 	public function SequenciaCrescente(array $arr): boolean {
+        if (count($arr) == 2) {
+            return true;
+        }
 
+        $achou = false;
+        
+        
+        for($exclPos=0; $exclPos<count($arr); $exclPos++){
+            
+            $arrApoio = [];
+            //Preenchendo array de apoio sem a posição a ser excluída
+            for($i=0; $i<count($arr); $i++){ 
+                if ($i <> $exclPos){
+                    array_push($arrApoio, $arr[$i]);
+                }
+            }
+
+            for($i=0; $i<(count($arrApoio)) - 1; $i++){
+                if ( ($arrApoio[$i + 1]) <= $arrApoio[$i] ){
+                    $exclPos ++;
+                    $i = count($arrApoio) + 10;
+                }else{
+                    if($i == count($arrApoio) - 2){
+                        $achou = true;
+                        $exclPos = count($arr) + 10;
+                    }
+                }
+
+            }
+        }
+
+        return $achou;
     }
 }
